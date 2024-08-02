@@ -21,4 +21,7 @@ int main()
     printf("The value of %d - %d is %d \n ", a, b, a - b);
     printf("The value of %d / %d is %d \n ", a, b, a / b);
     printf("The value of %d * %d is %d \n ", a, b, a * b);
+
+
+    return 0;
 }
