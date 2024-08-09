@@ -11,7 +11,6 @@ int main() {
     printf("%d", mod);
 
     // format specifiers
-
     // %d => integer;
     // %s => string;
     // %c => character;
@@ -21,6 +20,7 @@ int main() {
     // %x => hexadecimal integer;
     // %X => hexadecimal integer (uppercase);
     // %lu => long unsigned integer;
+    
 
 
     
