@@ -31,7 +31,7 @@ int main()
 
     input(a,2,3);
     input(b,2,3); 
-    arrayadd(a,b,c);
+    
     
     
     return 0;
