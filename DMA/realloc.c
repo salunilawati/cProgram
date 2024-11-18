@@ -1,52 +1,75 @@
+//WAP to sort the five integers values from user using malloc function at first and then realloc function 
+
 #include <stdio.h>
 #include <stdlib.h>
+
 int main()
 {
-    int
-        *p,i, n;
-    printf("Initial size of the array is 4\n\n");
-    p = (int
-
-             *)calloc(
-
-        4, sizeof(int));
-
-    if (p == NULL)
+    int *arr = (int *)malloc(5 * sizeof(int));
+    if (arr == NULL)
     {
-        printf("Memory allocation failed");
-        exit(1); // exit the program
+        printf("memory allocation failed");
+        exit(1);
     }
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 5; i++)
     {
-        printf("Enter element atmindex %d: ", i);
-        scanf("%d", p + i);
+        printf("Enter the value of %d element: ", i);
+        scanf("%d", arr + i);
     }
-    printf("\n values are : ");
-    for (i = 0; i < 4; i++)
+    int temp;
+    for (int i = 0; i < 5; i++)
     {
-        printf("%d", *(p + i));
+        for (int j = i + 1; j < 5; j++)
+        {
+            if (*(arr + i) > *(arr + j))
+            {
+                temp = *(arr + i);
+                *(arr + i) = *(arr + j);
+                *(arr + j) = temp;
+            }
+        }
+    }
+    printf("The sorted array is: ");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%d ", *(arr + i));
+    }
+    printf("\n");
+
+    arr = (int *)realloc(arr, 10 * sizeof(int));
+
+    if (arr == NULL)
+    {
+        printf("memory allocation failed");
+        exit(1);
     }
 
-    printf("\nIncreasing the size of the array by 5 elements ...\n");
-
-    p = (int *)realloc(p, 9 * sizeof(int));
-    if (p == NULL)
+    for (int i = 5; i < 10; i++)
     {
-        printf("Memory allocation failed");
-        exit(1); // exit the program
+        printf("Enter the value of %d element: ", i);
+        scanf("%d", arr + i);
     }
-    printf("\nEnter 5 more integers\n\n");
 
-    for (i = 4; i < 9; i++)
+    for (int i = 5; i < 10; i++)
     {
-        printf("Enter element at index %d: ", i);
-        scanf("%d", p + i);
+        for (int j = i + 1; j < 10; j++)
+        {
+            if (*(arr + i) > *(arr + j))
+            {
+                temp = *(arr + i);
+                *(arr + i) = *(arr + j);
+                *(arr + j) = temp;
+            }
+        }
     }
-    printf("\nFinal array: \n");
+    printf("The sorted array is: ");
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d ", *(arr + i));
+    }
+    printf("\n");
 
-    for (i = 0; i < 9; i++)
-    {
-        printf("%d ", *(p + i));
-    }
+    free(arr);
+
     return 0;
 }

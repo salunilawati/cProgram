@@ -3,7 +3,10 @@
 
 int main()
 {
-    int i, sum = 0, *ptr, n;
+    int i, sum = 0, *ptr, n,nw;
+
+    printf("Enter the number you want to do sum of:\n");
+    scanf("%d", &n);
 
     ptr = (int *)malloc(n * sizeof(int));
 
@@ -22,17 +25,18 @@ int main()
 
     printf("The sum of the five integers is %d", sum);
 
-    printf("\n Enter three more value: \n");
+    printf("\n Numbers you want to add more: \n");
+    scanf("%d ",&nw);
 
-    ptr = (int *)realloc(ptr, 10 * sizeof(int));
+    ptr = (int *)realloc(ptr, n+nw * sizeof(int));
     if (ptr == NULL)
     {
         printf("Memory not allocated");
         exit(0);
-        
+
     }
 
-    for (i = 0; i < 10; i++)
+    for (i = n; i < n+nw; i++)
     {
         scanf("%d", (ptr + i));
         sum += *(ptr + i);
